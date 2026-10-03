@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dce87ynis0iu0"]
+
+[ext_resource type="Script" uid="uid://dop7yyrcrh8j3" path="res://Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://briydueln3u3n" path="res://Idle/Adam.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(12, 43)
+
+[node name="Player" type="CharacterBody2D" unique_id=663727685]
+slide_on_ceiling = false
+script = ExtResource("1_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466823239]
+texture_filter = 1
+position = Vector2(319, 198.0625)
+scale = Vector2(2.3749998, 2.4960945)
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288271390]
+position = Vector2(318, 207.5)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=174885439]
+position = Vector2(303, 174)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bcu6272fu8n52"]
+
+[ext_resource type="Texture2D" uid="uid://du0geyl1dtuaq" path="res://Assets/Map/Beginning-Trees(Trunk).png" id="1_guoxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esr4g"]
+size = Vector2(50.5, 126)
+
+[node name="stat" type="StaticBody2D" unique_id=1418743854]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=562862884]
+texture_filter = 1
+position = Vector2(13, 31)
+scale = Vector2(1.40625, 1.96875)
+texture = ExtResource("1_guoxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1027415704]
+visible = false
+position = Vector2(14, 31)
+shape = SubResource("RectangleShape2D_esr4g")

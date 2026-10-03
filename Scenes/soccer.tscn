@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://dmsg3euh5w2gd"]
+
+[ext_resource type="Texture2D" uid="uid://cbwbaclup81y7" path="res://Assets/Map/Path Webtyler.png" id="1_y2i4j"]
+[ext_resource type="PackedScene" uid="uid://dce87ynis0iu0" path="res://Scenes/player.tscn" id="2_ujywx"]
+[ext_resource type="PackedScene" uid="uid://dufr0wpe0pwxg" path="res://Scenes/enemy.tscn" id="3_kmtla"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3psjf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq00e"]
+texture = ExtResource("1_y2i4j")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2u5tl"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.67003113, 0.39810306, 0.17636564, 1)
+sources/0 = SubResource("TileSetAtlasSource_kq00e")
+
+[node name="Soccer" type="Node2D" unique_id=2054396842]
+
+[node name="Layers" type="Node2D" parent="." unique_id=264925536]
+
+[node name="beginningPath" type="TileMapLayer" parent="Layers" unique_id=1552865715]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_3psjf")
+tile_map_data = PackedByteArray("AAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAJAAUAAAACAAEAAAAIAAUAAAABAAEAAAAIAAYAAAACAAEAAAAJAAYAAAACAAEAAAAKAAcAAAACAAEAAAALAAcAAAACAAEAAAALAAYAAAACAAEAAAAJAAcAAAACAAEAAAAIAAcAAAACAAIAAAAIAAgAAAAAAAIAAAAJAAgAAAABAAIAAAAKAAgAAAABAAIAAAAMAAYAAAADAAIAAAAMAAUAAAAAAAAAAAALAAUAAAACAAAAAAALAAQAAAAAAAAAAAAKAAQAAAADAAAAAAAJAAQAAAADAAAAAAAIAAQAAAABAAMAAAAHAAUAAAABAAMAAAAHAAYAAAABAAAAAAAHAAcAAAAAAAIAAAAMAAcAAAACAAAAAAANAAgAAAAAAAEAAAAMAAgAAAABAAIAAAANAAcAAAAAAAAAAAAMAAkAAAAAAAMAAAALAAgAAAABAAIAAAANAAkAAAABAAAAAAAOAAkAAAACAAEAAAAOAAgAAAADAAAAAAAOAAcAAAAAAAIAAAAHAAgAAAAAAAMAAAAGAAgAAAAAAAMAAAAGAAcAAAAAAAMAAAAGAAYAAAAAAAMAAAAFAAUAAAAAAAMAAAAFAAQAAAAAAAMAAAAGAAQAAAAAAAMAAAAGAAUAAAAAAAMAAAAFAAYAAAAAAAMAAAAFAAcAAAAAAAMAAAAHAAQAAAAAAAMAAAAHAAMAAAAAAAMAAAAIAAMAAAAAAAMAAAAIAAIAAAAAAAMAAAAGAAMAAAAAAAMAAAAFAAgAAAAAAAMAAAAGAAkAAAAAAAMAAAAGAAoAAAAAAAMAAAAHAAoAAAAAAAMAAAAHAAsAAAAAAAMAAAAHAAkAAAAAAAMAAAAIAAoAAAAAAAMAAAAIAAsAAAAAAAMAAAAXAAUAAAAAAAMAAAAYAAUAAAAAAAMAAAAYAAYAAAAAAAMAAAAXAAYAAAAAAAMAAAAIAAkAAAAAAAMAAAAJAAkAAAAAAAMAAAAKAAoAAAAAAAMAAAAKAAsAAAAAAAMAAAAJAAoAAAAAAAMAAAAJAAsAAAAAAAMAAAAKAAkAAAAAAAMAAAALAAoAAAAAAAMAAAALAAkAAAAAAAMAAAANAAoAAAABAAAAAAANAAsAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_2u5tl")
+
+[node name="Player" parent="." unique_id=440439963 instance=ExtResource("2_ujywx")]
+position = Vector2(2, -1)
+
+[node name="Enemy" parent="." unique_id=1040112045 instance=ExtResource("3_kmtla")]
+position = Vector2(437, 201)
