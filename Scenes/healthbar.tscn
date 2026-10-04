@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://tqqh5nethot3"]
+
+[ext_resource type="Texture2D" uid="uid://dwl7ybs5e6nro" path="res://Assets/HealthbarDead.png" id="1_1v5t1"]
+[ext_resource type="Texture2D" uid="uid://8ucd752ikcqq" path="res://Assets/Healthbar.png" id="2_bngtt"]
+
+[node name="Healthbar" type="Node2D" unique_id=680834237]
+
+[node name="HealthbarDead" type="Sprite2D" parent="." unique_id=1820684429]
+texture_filter = 1
+texture = ExtResource("1_1v5t1")
+centered = false
+
+[node name="Healthbar" type="Sprite2D" parent="." unique_id=1455308133]
+texture_filter = 1
+texture = ExtResource("2_bngtt")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 21, 4)

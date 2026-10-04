@@ -6,19 +6,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(12, 31)
+
 [node name="Player" type="CharacterBody2D" unique_id=663727685]
 slide_on_ceiling = false
 script = ExtResource("1_4flbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=466823239]
 texture_filter = 1
-position = Vector2(319, 198.0625)
 scale = Vector2(2.3749998, 2.4960945)
 texture = ExtResource("2_i3pqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288271390]
-position = Vector2(318, 207.5)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174885439]
-position = Vector2(303, 174)
+position = Vector2(-10, -20)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=228248621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=584257440]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_cvnsp")
