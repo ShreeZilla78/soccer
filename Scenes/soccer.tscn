@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cbwbaclup81y7" path="res://Assets/Map/Path Webtyler.png" id="1_y2i4j"]
 [ext_resource type="PackedScene" uid="uid://dce87ynis0iu0" path="res://Scenes/player.tscn" id="2_ujywx"]
-[ext_resource type="PackedScene" uid="uid://dufr0wpe0pwxg" path="res://Scenes/enemy.tscn" id="3_kmtla"]
+[ext_resource type="PackedScene" uid="uid://dufr0wpe0pwxg" path="res://Scenes/Termite.tscn" id="3_kmtla"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3psjf"]
 
@@ -44,7 +44,7 @@ tile_map_data = PackedByteArray("AAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAJAAUAAAACAAE
 tile_set = SubResource("TileSet_2u5tl")
 
 [node name="Player" parent="." unique_id=440439963 instance=ExtResource("2_ujywx")]
-position = Vector2(2, -1)
+position = Vector2(251, 190)
 
 [node name="Enemy" parent="." unique_id=1040112045 instance=ExtResource("3_kmtla")]
 position = Vector2(437, 201)

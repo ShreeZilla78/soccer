@@ -14,14 +14,19 @@ var is_dead = false
 func _physics_process(delta: float) -> void:
 	if is_dead and target:
 		_attack(delta)
+	elif target:
+		var direction = (target.position - position).normalized()
+		velocity = direction * SPEED
+		move_and_slide()
+	else:
+		velocity = Vector2.ZERO
 
 func _attack(delta: float) -> void:
-
 	var direction = (target.position - position).normalized()
 	position += direction * SPEED * delta
 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, attacker_position: Vector2) -> void:
 	health -= amount
 	health_bar.update_health_bar(health)
 	if health <= 0:
@@ -29,7 +34,7 @@ func take_damage(amount: int) -> void:
 	else:
 		print(health)
 		#knockback
-		var knockback_direction = (position - target.position).normalized()
+		var knockback_direction = (position - attacker_position).normalized()
 		var target_position = position + knockback_direction * KNOCKBACK_FORCE
 
 		var tween = create_tween()

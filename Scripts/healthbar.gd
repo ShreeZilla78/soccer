@@ -2,7 +2,7 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
-@onready var health_bar: Sprite2D = $HealthBar
+@onready var health_bar: Sprite2D = $Healthbar
 @onready var default_width = health_bar.region_rect.size.x
 @onready var default_height = health_bar.region_rect.size.y
 

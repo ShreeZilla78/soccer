@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dce87ynis0iu0"]
 
 [ext_resource type="Script" uid="uid://dop7yyrcrh8j3" path="res://Scripts/player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://briydueln3u3n" path="res://Idle/Adam.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bhuvrd1mse674" path="res://Idle/Adam2.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(12, 31)
+size = Vector2(21.538849, 35.062656)
 
 [node name="Player" type="CharacterBody2D" unique_id=663727685]
 slide_on_ceiling = false
@@ -16,17 +16,22 @@ script = ExtResource("1_4flbx")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=466823239]
 texture_filter = 1
 scale = Vector2(2.3749998, 2.4960945)
-texture = ExtResource("2_i3pqv")
+texture = ExtResource("2_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288271390]
-position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174885439]
 position = Vector2(-10, -20)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=228248621]
+position = Vector2(26, 4)
+scale = Vector2(1.995, 1.995)
+collision_mask = 2
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=584257440]
-position = Vector2(0, 5.5)
+position = Vector2(-4.7683716e-07, 0)
 shape = SubResource("RectangleShape2D_cvnsp")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

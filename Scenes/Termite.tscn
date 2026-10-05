@@ -2,18 +2,21 @@
 
 [ext_resource type="Script" uid="uid://t5ln1175jr43" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://d0wufpmvvqvjv" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://tqqh5nethot3" path="res://Scenes/healthbar.tscn" id="3_afpow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(31.333334, 34.666668)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
 radius = 157.27682
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1040112045]
+[node name="Termite" type="CharacterBody2D" unique_id=1040112045]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_1f0kj")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=1169096430]
+position = Vector2(1.5000014, -2.9999995)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_4gyqm")
 
@@ -23,9 +26,14 @@ scale = Vector2(0.390625, 0.421875)
 texture = ExtResource("1_7k104")
 
 [node name="Wander" type="Area2D" parent="." unique_id=350221459]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wander" unique_id=504159243]
 shape = SubResource("CircleShape2D_afpow")
+
+[node name="Healthbar" parent="." unique_id=680834237 instance=ExtResource("3_afpow")]
+position = Vector2(-10, -35)
 
 [connection signal="body_entered" from="Wander" to="." method="_on_wander_body_entered"]
 [connection signal="body_exited" from="Wander" to="." method="_on_wander_body_exited"]
