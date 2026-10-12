@@ -6,20 +6,21 @@ const KNOCKBACK_FORCE = 50.0
 
 var target = null
 var health = 20
-var is_dead = false
+var is_alive = true
 
 @onready var health_bar: Node2D = $HealthBar
 
 
 func _physics_process(delta: float) -> void:
-	if is_dead and target:
+	if is_alive and target:
 		_attack(delta)
 	elif target:
 		var direction = (target.position - position).normalized()
 		velocity = direction * SPEED
 		move_and_slide()
-	else:
+	elif not is_alive:
 		velocity = Vector2.ZERO
+	move_and_slide()
 
 func _attack(delta: float) -> void:
 	var direction = (target.position - position).normalized()
@@ -28,6 +29,7 @@ func _attack(delta: float) -> void:
 
 func take_damage(amount: int, attacker_position: Vector2) -> void:
 	health -= amount
+	print(health)
 	health_bar.update_health_bar(health)
 	if health <= 0:
 		_die()
@@ -43,17 +45,17 @@ func take_damage(amount: int, attacker_position: Vector2) -> void:
 		tween.tween_property(self, "position", target_position, 0.1)
 
 func _die() -> void:
-	is_dead = true
+	is_alive = false
 	#disable collision
 	$hitbox.set_deferred("disabled", true)
 	$Wander/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_wander_body_entered(body: Node2D) -> void:
-
-	if body.name == "Player":
+	# target = body
+	if body.name == "player":
 		target = body
 	
 
 func _on_wander_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "player":
 		target = null
