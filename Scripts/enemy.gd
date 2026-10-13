@@ -5,7 +5,7 @@ const SPEED = 100.0
 const KNOCKBACK_FORCE = 50.0
 
 var target = null
-var health = 20
+var health = 5
 var is_alive = true
 
 @onready var health_bar: Node2D = $HealthBar

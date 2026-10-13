@@ -12,7 +12,7 @@ radius = 157.27682
 
 [node name="Termite" type="CharacterBody2D" unique_id=1040112045]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_1f0kj")
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=1169096430]
