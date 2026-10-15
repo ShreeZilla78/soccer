@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 
 const SPEED = 100.0
-const KNOCKBACK_FORCE = 50.0
+const KNOCKBACK_FORCE = 100.0
 
 var target = null
-var health = 5
+var health = 20
 var is_alive = true
 
 @onready var health_bar: Node2D = $HealthBar
+# @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -25,13 +26,19 @@ func _physics_process(delta: float) -> void:
 func _attack(delta: float) -> void:
 	var direction = (target.position - position).normalized()
 	position += direction * SPEED * delta
+	# if direction.x != 0:
+	# 	animated_sprite_2d.flip_h = direction.x < 0
+	# 	animated_sprite_2d.play("Run")
+		
 
 
 func take_damage(amount: int, attacker_position: Vector2) -> void:
 	health -= amount
 	print(health)
-	health_bar.update_health_bar(health)
-	if health <= 0:
+	#health_bar.update_health_bar(health)
+	if !is_alive:
+		return
+	elif health <= 0:
 		_die()
 	else:
 		print(health)
@@ -49,6 +56,7 @@ func _die() -> void:
 	#disable collision
 	$hitbox.set_deferred("disabled", true)
 	$Wander/CollisionShape2D.set_deferred("disabled", true)
+	$Attack_Box/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_wander_body_entered(body: Node2D) -> void:
 	# target = body
@@ -59,3 +67,10 @@ func _on_wander_body_entered(body: Node2D) -> void:
 func _on_wander_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		target = null
+		# animated_sprite_2d.play("Idle")
+
+
+func _on_attack_box_body_entered(body: Node2D) -> void:
+	print(body)
+	#if body.name == "player":
+		#body.take_damage(strength, position)
