@@ -219,6 +219,8 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174885439]
 position = Vector2(-10, -20)
+limit_left = 0
+limit_top = 0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=228248621]
 position = Vector2(26, 4)

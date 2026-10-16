@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dlwivdekq1c4a"]
+
+[ext_resource type="Script" path="res://main_maps.gd" id="1_ync6v"]
+[ext_resource type="PackedScene" uid="uid://dmsg3euh5w2gd" path="res://Scenes/soccer.tscn" id="2_drxqy"]
+
+[node name="Main_Maps" type="Node2D" unique_id=633971593]
+script = ExtResource("1_ync6v")
+
+[node name="Soccer" parent="." unique_id=2054396842 instance=ExtResource("2_drxqy")]

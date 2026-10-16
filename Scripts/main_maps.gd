@@ -1,0 +1,19 @@
+extends Node
+
+var level = 1
+var current_map_root: Node = null
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	current_map_root = get_node("Soccer")
+	#this sets the current map var to the Soccer scene that we connected
+
+	var exit = current_map_root.get_node_or_null("Exit")
+	if exit:
+		exit.body_entered.connect(_on_exit_body_entered)
+
+func _on_exit_body_entered(body: Node2D) -> void:
+	print(body.name)
+
+
