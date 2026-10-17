@@ -8,7 +8,7 @@ var target = null
 var health = 20
 var is_alive = true
 
-@onready var health_bar: Node2D = $HealthBar
+@onready var health_bar: Node2D = $Healthbar
 # @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -34,14 +34,12 @@ func _attack(delta: float) -> void:
 
 func take_damage(amount: int, attacker_position: Vector2) -> void:
 	health -= amount
-	print(health)
-	#health_bar.update_health_bar(health)
+	health_bar.update_health_bar(health)
 	if !is_alive:
 		return
 	elif health <= 0:
 		_die()
 	else:
-		print(health)
 		#knockback
 		var knockback_direction = (position - attacker_position).normalized()
 		var target_position = position + knockback_direction * KNOCKBACK_FORCE
@@ -56,7 +54,8 @@ func _die() -> void:
 	#disable collision
 	$hitbox.set_deferred("disabled", true)
 	$Wander/CollisionShape2D.set_deferred("disabled", true)
-	$Attack_Box/CollisionShape2D.set_deferred("disabled", true)
+	
+	queue_free()
 
 func _on_wander_body_entered(body: Node2D) -> void:
 	# target = body
