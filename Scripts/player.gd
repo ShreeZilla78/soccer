@@ -119,3 +119,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_hitbox_body_exited(body: Node2D) -> void:
 	enemy = null
+
+
+func take_damage(damage: int) -> void:
+	health =- damage
