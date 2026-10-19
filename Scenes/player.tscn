@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olqyp")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack-North",
 "speed": 5.0
 }, {
@@ -115,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wpjfl")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack-South",
 "speed": 5.0
 }, {
@@ -211,10 +211,9 @@ script = ExtResource("1_4flbx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1597091494]
 scale = Vector2(2.3749998, 2.4960945)
 sprite_frames = SubResource("SpriteFrames_fd4e3")
-animation = &"Attack-North"
+animation = &"Attack-South"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288271390]
-position = Vector2(0, -1)
+[node name="HealthBox" type="CollisionShape2D" parent="." unique_id=288271390]
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174885439]
