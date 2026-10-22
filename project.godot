@@ -52,6 +52,10 @@ attack={
 ]
 }
 
+[internationalization]
+
+rendering/force_right_to_left_layout_direction=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -60,3 +64,5 @@ attack={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+rendering_device/driver.macos="vulkan"
+textures/vram_compression/import_etc2_astc=true

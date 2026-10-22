@@ -8,7 +8,7 @@
 size = Vector2(32.000004, 34.666668)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
-radius = 157.27682
+radius = 250.002
 
 [node name="Termite" type="CharacterBody2D" unique_id=1040112045]
 collision_layer = 2
