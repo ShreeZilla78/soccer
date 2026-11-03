@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED: int = 201
-const max_health: int = 3
+const max_health: int = 30
 
 var health: int = max_health
 var last_direction: Vector2 = Vector2.RIGHT
@@ -9,6 +9,7 @@ var is_attacking: bool = false
 var hitbox_offset: Vector2
 var strength: int = 8
 var enemy = null
+var is_dead: bool = false
 
 @onready var hitbox: Area2D = $Hitbox
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -26,6 +27,9 @@ func _process(_delta: float) -> void:
 
 	#hitbox.monitoring = false
 
+	if is_dead:
+		velocity = Vector2.ZERO
+		print("Player is dead")
 	
 	if Input.is_action_pressed("attack") and not is_attacking:
 		attack()
@@ -109,7 +113,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_attacking:
 		is_attacking = false
-		if enemy:
+		if enemy && enemy.name.begins_with("Termite"):
 			enemy.take_damage(strength, position)
 		else:
 			return
@@ -124,3 +128,5 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 
 func take_damage(damage: int) -> void:
 	health =- damage
+	if health < 0:
+		is_dead = true

@@ -7,9 +7,11 @@ const KNOCKBACK_FORCE = 100.0
 var target = null
 var health = 20
 var is_alive = true
+var strength = 5
+var is_attacking: bool = false
 
 @onready var health_bar: Node2D = $Healthbar
-# @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _physics_process(delta: float) -> void:
@@ -73,3 +75,9 @@ func _on_attack_box_body_entered(body: Node2D) -> void:
 	print(body)
 	#if body.name == "player":
 		#body.take_damage(strength, position)
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		body.take_damage(strength)
+		# body.take_damage(strength, position)

@@ -241,9 +241,11 @@ position = Vector2(627.5, -505)
 shape = SubResource("RectangleShape2D_6qxtd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1324208938]
+visible = false
 color = Color(0.39607844, 0.41960785, 0.5137255, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1803805844]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="CanvasModulate" unique_id=1803805844]
+visible = false
 position = Vector2(1818, 1323)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=176038973]
