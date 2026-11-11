@@ -1,3 +1,22 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Godot temp files
+*.tmp
+
+# Game builds / exports (share these on Google Drive, not GitHub)
+*.exe
+*.pck
+*.zip
+*.dmg
+*.app/
+*.apk
+*.aab
+*.x86_64
+*.x86_32
+*.arm64
+build/
+builds/
+export/
+exports/
