@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED: int = 201
+const KNOCKBACK_FORCE: int = 150
 const max_health: int = 30
 
 var health: int = max_health
@@ -26,7 +27,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 
 	#hitbox.monitoring = false
-
 	if is_dead:
 		velocity = Vector2.ZERO
 		print("Player is dead")
@@ -48,7 +48,6 @@ func _process_movement() -> void:
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	velocity = direction * SPEED
-	
 
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
@@ -126,7 +125,12 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 	enemy = null
 
 
-func take_damage(damage: int) -> void:
-	health =- damage
+func take_damage(damage: int, attacker_position: Vector2) -> void:
+	print(health)
+	health -= damage
 	if health < 0:
 		is_dead = true
+	else:
+		var knockback_direction = (position - attacker_position).normalized()
+		var target_position = position + knockback_direction * KNOCKBACK_FORCE
+		update_hitbox_offset()

@@ -79,5 +79,4 @@ func _on_attack_box_body_entered(body: Node2D) -> void:
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		body.take_damage(strength)
-		# body.take_damage(strength, position)
+		body.take_damage(strength, position)
